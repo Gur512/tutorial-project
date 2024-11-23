@@ -1,0 +1,313 @@
+@charset "utf-8";
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1a1d28;
+    color: white;
+    overflow-x: hidden;
+}
+
+.container {
+    width: min(100% - 32px, 1080px);
+    margin-inline: auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ee2c56;
+}
+
+h1 {
+    margin: 20px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    padding: 0px 15px;
+}
+
+.btn {
+    padding: 5px 10px;
+    margin: 20px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: rgb(238, 44, 86);
+    font-size: 15px;
+}
+
+.main-container {
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: min(100% - 32px, 1080px);
+    padding: 20px;
+    /* height: 100vh; */
+    flex-wrap: wrap;
+}
+
+.main-content {
+    flex: 1;
+    text-align: center;
+}
+
+.main-content h1 {
+    color: #ee2c56;
+    font-size: 5rem;
+}
+
+.main-content h2 {
+    color: #5f3fec;
+    font-size: 5rem;
+}
+
+.main-content p {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+
+.btn-1 {
+    padding: 14px 32px;
+    margin-top: 2rem;
+    border-radius: 5px;
+    color: #fff;
+    background-image: linear-gradient(to top, #ee2c56 0, #f16583 100%);
+    font-size: 1.5rem;
+    font-weight: 400;
+    position: relative;
+    transition: all 0.35s;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn-1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #5f3fec;
+    border-radius: 5px;
+    transition: all 0.35s;
+    z-index: 1;
+}
+
+.btn-1 a {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-1:hover::after {
+    width: 100%;
+    transform: scale(1.1);
+}
+
+/*I tried but not working*/
+.btn-1.hovered {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.main-img {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px;
+}
+
+.main-img img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: contain;
+}
+
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    /* height: 100vh; */
+    padding: 20px;
+}
+
+.image-card {
+    height: 200px; 
+    opacity: 0;
+    transform: translateY(100px); 
+    transition: opacity 0.6s ease, transform 0.6s ease; 
+}
+
+.image-card img {
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #5f3fec;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.special-word {
+    color: #ee2c56;
+}
+
+.image-card:hover img {
+    transform: scale(1.1);
+    opacity: 0.8;
+    border: solid 1.5px #ee2c56;
+    box-shadow: 0 0 20px rgba(238, 44, 86, 0.7), 0 0 30px rgba(238, 44, 86, 0.7);
+}
+
+/* This happen when window load*/
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.image-card:nth-child(1) {
+    animation: loadEffect 1s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+.image-card:nth-child(2) {
+    animation: loadEffect 1s ease-out forwards;
+    animation-delay: 0.6s;
+}
+
+.image-card:nth-child(3) {
+    animation: loadEffect 1s ease-out forwards;
+    animation-delay: 0.9s;
+}
+
+@keyframes loadEffect {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 1200px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    .main-content h1 {
+        font-size: 4rem;
+    }
+
+    .main-content h2 {
+        font-size: 4rem;
+    }
+
+    .main-content p {
+        font-size: 1.5rem;
+    }
+
+    .btn-1 {
+        font-size: 1.3rem;
+    }
+
+    .image-card {
+        max-width: 300px;
+    }
+
+    .image-gallery {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .main-content h1 {
+        font-size: 3.5rem;
+    }
+
+    .main-content h2 {
+        font-size: 3.5rem;
+    }
+
+    .main-content p {
+        font-size: 1.2rem;
+    }
+
+    .btn-1 {
+        font-size: 1.2rem;
+        padding: 12px 28px;
+    }
+
+    .image-gallery {
+        flex-direction: column; 
+        gap: 20px;
+    }
+
+    .image-card {
+        max-width: 100%; 
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content h1 {
+        font-size: 2rem;
+    }
+
+    .main-content h2 {
+        font-size: 2rem;
+    }
+
+    .main-content p {
+        font-size: 1rem;
+    }
+
+    .btn-1 {
+        font-size: 1rem;
+        padding: 10px 24px;
+    }
+
+    .image-card img {
+        height: 300px;
+    }
+
+    .image-gallery {
+        flex-direction: column; 
+        gap: 15px;
+    }
+}
