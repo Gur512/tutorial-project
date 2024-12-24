@@ -1,12 +1,11 @@
-# Tutorial: How the Image Gallery Animation Website Works
+# Tutorial: How the Animation On Images and Buttons Works 
 
 This project demonstrates a modern approach to web design by combining **CSS animations**, **JavaScript interactivity**, and a **responsive layout**. Below is a step-by-step explanation of the key features and how they were implemented.
 
 ---
 ## Check out the live demo :computer:
 
-You can check out the live demo of the project [here](https://github.com/Gur512/tutorial-project.git).
-
+You can check out the live demo of the project [here](https://gur512.github.io/tutorial-project/).
 
 
 ---
@@ -33,10 +32,21 @@ The website uses **CSS keyframe animations** and **hover effects** to create smo
 
 
 .image-card:hover img {
-  transform: scale(1.1);
+  transform: scale(1.05);
   box-shadow: 0 0 20px rgba(238, 44, 86, 0.7), 0 0 30px rgba(238, 44, 86, 0.7);
 } 
 ``` 
+
+### Using Utility Functions
+```JavaScript
+function select(selector, scope = document) {
+    return scope.querySelector(selector);
+}
+
+function listen(event, selector, callback) {
+    return selector.addEventListener(event, callback);
+}
+```
 
 ### Another example of js:
 ``` javaScript 
@@ -52,17 +62,18 @@ listen(window, 'scroll', () => {
 ```
 ### Responsive design
 ``` css
-@media (max-width: 1200px) {
-    .main-container {
+@media (max-width: 480px) {
+
+    header {
         flex-direction: column;
     }
 
     .main-content h1 {
-        font-size: 4rem;
+        font-size: 3rem;
     }
 
     .main-content h2 {
-        font-size: 4rem;
+        font-size: 3rem;
     }
 
     .main-content p {
@@ -70,15 +81,26 @@ listen(window, 'scroll', () => {
     }
 
     .btn-1 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
+        padding: 10px 24px;
     }
 
-    .image-card {
-        max-width: 300px;
+    .image-card img {
+        height: 300px;
     }
 
     .image-gallery {
-        gap: 20px;
+        flex-direction: column; 
+        gap: 15px;
+    }
+
+    footer {
+        margin-top: 0px;
+        margin-left: 1rem;
+    }
+
+    .footer-links {
+        margin-left: 2rem;
     }
 }
 ```
