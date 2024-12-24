@@ -13,16 +13,16 @@ const headingText = select('.heading');
 const btn = select('.btn-1');
 
 
-listen (btn, 'mouseover', () => {
+listen ('mouseover', btn, () => {
     btn.classList.add('hovered');
 });
 
-listen(btn, 'mouseout', () => {
+listen('mouseout', btn, () => {
     btn.classList.remove('hovered');
 });
 
 
-listen(window, 'scroll', () => {
+listen('scroll', window, () => {
     cardOfImage.forEach(card => {
         const cardPosition = card.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
